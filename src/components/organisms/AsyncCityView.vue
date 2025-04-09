@@ -754,4 +754,10 @@ onMounted(() => {
     }
   }
 }
+
+@media (max-width: 768px) {
+  .weekly-forecast-container {
+    padding-left: 1rem;
+  }
+}
 </style>

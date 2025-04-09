@@ -1,13 +1,44 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import VueMacros from "unplugin-vue-macros/vite";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 import path from "path";
+import { fileURLToPath } from "node:url";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    VueMacros({
+      plugins: {
+        vue: vue(),
+        vueJsx: vueJsx(),
+      },
+    }),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  css: {
+    postcss: {
+      plugins: [tailwindcss, autoprefixer],
+    },
+  },
+  assetsInclude: ["**/*.woff", "**/*.woff2"],
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          const name = assetInfo.name || "";
+          if (name.endsWith(".woff") || name.endsWith(".woff2")) {
+            return "assets/fonts/[name][extname]";
+          }
+          return "assets/[name]-[hash][extname]";
+        },
+      },
     },
   },
 });

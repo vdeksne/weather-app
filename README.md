@@ -1,101 +1,111 @@
 # Weather App
 
-A responsive single-page weather application built with Vue 3, TypeScript, and the OpenWeatherMap API.
+A responsive single-page weather application built with Vue 3, TypeScript, and the OpenWeatherMap API. Features voice search capability using the Web Speech API for an enhanced user experience.
+
+See the live demo here: https://weather-app-steel-two-65.vercel.app/
+
+<img src="src/assets/images/video.gif" alt="Demo Video" width="300"/>
 
 ## Features
 
-- Real-time weather information for any city
-- Responsive design that works on all devices
-- Clean and modern UI with smooth animations
-- Error handling and loading states
-- Type-safe development with TypeScript
-- State management with Pinia
-- Component architecture following Atomic Design principles
+- **Real-time Weather Information**
+
+  - Current weather conditions
+  - Temperature, humidity, and wind speed
+  - Weather forecasts for multiple cities
+  - Location-based weather detection
+
+- **Smart Search Functionality**
+
+  - Voice search capability using Web Speech API
+  - City and airport search
+  - Real-time search suggestions
+  - Recent searches history
+
+- **User Experience**
+
+  - Responsive design for all devices
+  - Clean and modern UI with smooth animations
+  - Intuitive navigation
+  - Loading states and error handling
+
+- **Technical Features**
+  - Type-safe development with TypeScript
+  - State management with Pinia
+  - Component architecture following Atomic Design principles
+  - SCSS styling with BEM methodology
 
 ## Tech Stack
 
-- Vue 3 with Composition API
-- TypeScript
-- Vite
-- Vue Router
-- Pinia (State Management)
-- SCSS
-- OpenWeatherMap API
+- **Frontend Framework**
+
+  - Vue 3 with Composition API
+  - TypeScript
+  - Vite
+  - Vue Router
+  - Pinia (State Management)
+
+- **Styling**
+
+  - SCSS
+  - Tailwind CSS
+  - BEM methodology
+
+- **APIs**
+  - OpenWeatherMap API
+  - Web Speech API (for voice search)
 
 ## Prerequisites
 
 - Node.js (v14 or higher)
 - npm or yarn
 - OpenWeatherMap API key
+- Modern web browser with Web Speech API support (Chrome recommended)
 
-## Setup
+## Getting Started
 
-1. Clone the repository:
+1. **Clone the repository:**
+
+   ```bash
+   git clone <repository-url>
+   cd weather-app
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup:**
+   Create a `.env` file in the root directory:
+
+   ```
+   VITE_OPENWEATHER_API_KEY=your_api_key_here
+   ```
+
+4. **Development:**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Production Build:**
+   ```bash
+   npm run build
+   ```
+
+## Testing
 
 ```bash
-git clone <repository-url>
-cd weather-app
+# Run unit tests
+npm run test:unit
+
+# Run tests in watch mode
+npm run test:watch
 ```
-
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Create a `.env` file in the root directory and add your OpenWeatherMap API key:
-
-```
-VITE_OPENWEATHER_API_KEY=your_api_key_here
-```
-
-4. Start the development server:
-
-```bash
-npm run dev
-```
-
-5. Build for production:
-
-```bash
-npm run build
-```
-
-## Project Structure
-
-```
-src/
-├── api/              # API integration
-├── assets/           # Static assets
-├── components/       # Vue components
-│   ├── atoms/       # Basic building blocks
-│   ├── molecules/   # Combinations of atoms
-│   ├── organisms/   # Complex components
-│   ├── templates/   # Page layouts
-│   └── pages/       # Full pages
-├── router/          # Vue Router configuration
-├── stores/          # Pinia stores
-├── types/           # TypeScript type definitions
-└── utils/           # Utility functions
-```
-
-## Development Guidelines
-
-- Follow the Atomic Design methodology for component organization
-- Use TypeScript for type safety
-- Follow Vue 3 Composition API best practices
-- Write clean, maintainable code
-- Use SCSS for styling with BEM methodology
-- Ensure responsive design for all components
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the Educational Use License - see the [LICENSE](LICENSE) file for details. This license restricts usage to educational purposes only and prohibits commercial use.
+

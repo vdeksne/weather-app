@@ -1,19 +1,29 @@
+import type { Ref } from "vue";
+
+export interface CityData {
+  name: string;
+  state?: string;
+  country: string;
+  lat: number;
+  lon: number;
+}
+
 export interface WeatherData {
   main: {
     temp: number;
     feels_like: number;
     humidity: number;
     pressure: number;
+    temp_max: number;
+    temp_min: number;
   };
   weather: Array<{
-    id: number;
-    main: string;
+    id(id: any): unknown;
     description: string;
     icon: string;
   }>;
   wind: {
     speed: number;
-    deg: number;
   };
   name: string;
   sys: {
@@ -21,6 +31,7 @@ export interface WeatherData {
     sunrise: number;
     sunset: number;
   };
+  timezone: number;
 }
 
 export interface WeatherError {
@@ -29,8 +40,10 @@ export interface WeatherError {
 }
 
 export interface WeatherState {
-  currentWeather: WeatherData | null;
-  loading: boolean;
-  error: WeatherError | null;
-  searchQuery: string;
+  currentWeather: Ref<WeatherData | null>;
+  loading: Ref<boolean>;
+  error: Ref<WeatherError | null>;
+  searchQuery: Ref<string>;
+  locationDetected: Ref<boolean>;
+  previewCity: Ref<CityData | null>;
 }

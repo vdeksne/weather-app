@@ -1,72 +1,33 @@
 <template>
-  <button
-    :class="[
-      'base-button',
-      `base-button--${variant}`,
-      { 'base-button--disabled': disabled },
-    ]"
-    :disabled="disabled"
-    @click="$emit('click')"
-  >
-    <slot></slot>
-  </button>
+  <button class="button-container">Submit</button>
 </template>
 
-<script setup lang="ts">
-defineProps<{
-  variant?: "primary" | "secondary" | "outline";
-  disabled?: boolean;
-}>();
-
-defineEmits<{
-  (e: "click"): void;
-}>();
-</script>
+<script lang="ts" setup></script>
 
 <style scoped lang="scss">
-@use "sass:color";
-
-.base-button {
-  padding: 0.75rem 1.5rem;
+.button-container {
+  width: 100%;
+  display: flex;
+  max-width: 21.375rem;
+  padding: 0.78125rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: none;
-  outline: none;
-
-  &--primary {
-    background-color: #4a90e2;
-    color: white;
-
-    &:hover:not(:disabled) {
-      background-color: color.adjust(#4a90e2, $lightness: -10%);
-    }
-  }
-
-  &--secondary {
-    background-color: #f5f5f5;
-    color: #333;
-
-    &:hover:not(:disabled) {
-      background-color: color.adjust(#f5f5f5, $lightness: -10%);
-    }
-  }
-
-  &--outline {
-    background-color: transparent;
-    border: 2px solid #4a90e2;
-    color: #4a90e2;
-
-    &:hover:not(:disabled) {
-      background-color: #4a90e2;
-      color: white;
-    }
-  }
-
-  &--disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  background: #2e3a5a;
+  color: var(--Light-Gray-0, #fff);
+  text-align: center;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 1.75rem; /* 155.556% */
+  text-transform: uppercase;
+  margin-top: 14rem;
+}
+@media (max-width: 768px) {
+  .button-container {
+    margin-top: 4rem;
   }
 }
 </style>
